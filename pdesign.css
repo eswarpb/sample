@@ -1,0 +1,202 @@
+body {
+    background: url("https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg")
+      no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to right, blue, red, black, purple);
+  }
+  strong{
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 12px 16px 0 black,
+      0 17px 50px 0 black;
+  }
+
+  #name-form {
+    background-color: #191818;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  #name-form input,
+  #name-form select {
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    width: 100%;
+  }
+
+  #start-button {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s;
+    width: 90%;
+    box-shadow: 0 12px 16px 0 rgba(232, 229, 229, 0.24),
+      0 17px 50px 0 rgba(231, 229, 229, 0.19);
+  }
+  #show-instructions {
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s;
+    width: 70%;
+    box-shadow: 0 12px 16px 0 rgba(232, 229, 229, 0.24),
+      0 17px 50px 0 rgba(231, 229, 229, 0.19);
+  }
+
+  #instructions {
+    font-size: 16px;
+    color: white;
+    display: none;
+  }
+
+  #start-button:hover, #show-instructions:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+
+  #game-container {
+    display: none;
+    margin-top: 30px;
+  }
+
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  /*.card {
+      background-color: #007bff;
+      border-radius: 15px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.6s, background-color 0.6s;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      background-size: cover;
+      background-position: center;
+  }*/
+  .card {
+    background-color: #007bff;
+    border-radius: 15px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.6s, background-color 0.6s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-position: center;
+    /* Add this to the parent container for more realistic 3D flips */
+
+  }
+  .card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.card:hover::before {
+    transform: scale(1.05);
+    filter: blur(10px);
+}
+
+  .card.flipped {
+    background-color: #fff;
+    transform: rotateY(180deg);
+  }
+
+  .card.matched {
+    background-color: #28a745;
+    transform: scale(1.1);
+  }
+
+  #attempts,
+  #timer,
+  #score {
+    font-size: 1.5rem;
+    color: white;
+    margin: 10px 0;
+    text-shadow: 2px 2px 8px #ff0000;
+  }
+
+  #message {
+    font-size: 2rem;
+    font-weight: 600;
+    color:greenyellow;
+    margin-top: 20px;
+  }
+
+  #reset-button {
+    background-color: #dc3545;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    transition: all 0.3s;
+  }
+
+  #reset-button:hover {
+    background-color:green;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    #game-board {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .card {
+      height: 100px;
+      font-size: 20px;
+    }
+  }
